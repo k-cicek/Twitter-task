@@ -23,12 +23,14 @@ Bu projeyi çalıştırmak için aşağıdaki yazılımlara ihtiyacınız vardı
 
 1. Proje klasörünü yerel makinenize klonlayın veya ZIP dosyası olarak indirin.
 2. Klasöre terminal üzerinden gidin ve aşağıdaki komutu çalıştırarak bağımlılıkları yükleyin:
+   `npm install`
 
 
 ### Çalıştırma
 
 Bağımlılıkları yükledikten sonra, aşağıdaki komutla uygulamayı başlatabilirsiniz:
 
+`npm run serve`
 
 Uygulama başarıyla başlatıldıktan sonra, tarayıcınızda `http://localhost:8080` adresine giderek uygulamayı görebilirsiniz.
 
