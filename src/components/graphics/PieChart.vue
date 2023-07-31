@@ -1,11 +1,6 @@
 <template>
   <div class="pieChartContainer">
-    <canvas
-      v-if="canvasRef"
-      :ref="canvasRef"
-      :width="width"
-      :height="height"
-    ></canvas>
+    <canvas v-if="canvasRef" :ref="canvasRef"></canvas>
 
     <div class="percentages">
       <div v-for="gender in genders" :key="gender.label">
@@ -42,10 +37,12 @@ export default {
   data() {
     return {
       canvasRef: "pieChartCanvas",
+      chartInstance: null,
     };
   },
   computed: {
     genders() {
+      if (!this.users.length === 0) return [];
       const genderCounts = this.calculateGenderCounts();
       const totalSentences = this.calculateTotalSentences();
 
@@ -62,25 +59,73 @@ export default {
         return { label, count, percentage, color: colors[index] };
       });
     },
+    chartKey() {
+      return this.users;
+    },
   },
+  key: "chartKey",
+
   mounted() {
     this.renderPieChart();
+  },
+  watch: {
+    users: {
+      handler() {
+        this.renderPieChart();
+      },
+      deep: true,
+    },
   },
   methods: {
     renderPieChart() {
       const ctx = this.$refs[this.canvasRef].getContext("2d");
 
+      if (this.chartInstance) {
+        this.chartInstance.destroy();
+      }
+
       Chart.register(...registerables);
 
-      const storedData = localStorage.getItem("pieChartUserData");
-      if (storedData) {
-        const genderCounts = JSON.parse(storedData);
-        this.createChart(ctx, genderCounts);
-      } else {
-        const genderCounts = this.calculateGenderCounts();
-        this.createChart(ctx, genderCounts);
-        localStorage.setItem("pieChartUserData", JSON.stringify(genderCounts));
-      }
+      const genderCounts = this.calculateGenderCounts();
+
+      this.chartInstance = new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: ["Male", "Female", "Genderfluid"],
+          datasets: [
+            {
+              data: [
+                genderCounts.male,
+                genderCounts.female,
+                genderCounts.genderfluid,
+              ],
+              backgroundColor: [
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+              ],
+              borderColor: [
+                "rgba(75, 192, 192, 1)",
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+            datalabels: {
+              display: false,
+            },
+          },
+        },
+      });
     },
 
     calculateGenderCounts() {
@@ -127,48 +172,6 @@ export default {
         });
       }
       return sentenceCount;
-    },
-
-    createChart(ctx, genderCounts) {
-      new Chart(ctx, {
-        type: "pie",
-        data: {
-          labels: ["Male", "Female", "Genderfluid"],
-          datasets: [
-            {
-              label: "",
-              backgroundColor: [
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-              ],
-              borderColor: [
-                "rgba(75, 192, 192, 1)",
-                "rgba(255, 99, 132, 1)",
-                "rgba(54, 162, 235, 1)",
-              ],
-              borderWidth: 1,
-              data: [
-                genderCounts.male,
-                genderCounts.female,
-                genderCounts.genderfluid,
-              ],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              display: false,
-            },
-            datalabels: {
-              display: false,
-            },
-          },
-        },
-      });
     },
   },
 };
