@@ -75,7 +75,6 @@ export default {
 </script>
 
 <style scoped>
-/* Mobile-compatible CSS */
 .userCards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -116,7 +115,6 @@ export default {
 }
 
 .userInfoContainer {
-  /* Add a container to wrap the user information in each card */
   padding: 10px 0;
 }
 
