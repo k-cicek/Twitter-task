@@ -1,6 +1,6 @@
 <template>
   <div>
-    <canvas ref="barChartCanvas"></canvas>
+    <canvas ref="barChartCanvas" :width="width" :height="height"></canvas>
   </div>
 </template>
 
@@ -9,6 +9,20 @@ import { Chart, registerables } from "chart.js";
 import axios from "axios";
 
 export default {
+  props: {
+    data: {
+      type: Array,
+      required: true,
+    },
+    width: {
+      type: Number,
+      required: true,
+    },
+    height: {
+      type: Number,
+      required: true,
+    },
+  },
   data() {
     return {
       users: [],
@@ -73,4 +87,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+canvas {
+  max-width: 100%;
+}
+
+@media (min-width: 600px) {
+  canvas {
+    width: 600px;
+  }
+}
+</style>

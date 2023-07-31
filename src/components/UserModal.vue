@@ -181,7 +181,6 @@ export default {
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .userInfoModal span {
@@ -199,5 +198,43 @@ export default {
   justify-content: space-between;
   margin-top: 13px;
   width: 800px;
+  max-width: 100%;
+}
+@media only screen and (max-width: 1024px) {
+  .userTweets {
+    width: 100%;
+  }
+  .tweetContents p {
+    width: 70%;
+  }
+  .actionIcon {
+    max-width: 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .actionIcons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  .tweetContents p {
+    width: 40%;
+  }
+  .actionIcon {
+    max-width: 50%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .tweetContents p {
+    width: 20%;
+  }
+  .actionIcon {
+    max-width: 25%;
+  }
+  .userTweets h2 span {
+    font-size: 13px;
+  }
 }
 </style>

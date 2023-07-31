@@ -76,7 +76,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .tweetContainer {
   display: flex;
@@ -102,10 +101,8 @@ export default {
   background-color: #fff;
   margin-bottom: 10px;
   box-shadow: rgba(10, 9, 48, 0.18) 0px 48px 100px 0px;
-}
-
-.tweetContent {
-  max-width: 800px;
+  width: 100% !important;
+  overflow: hidden;
 }
 
 .userDetail {
@@ -121,6 +118,9 @@ export default {
   margin-right: 20px;
   background-color: #f0f0f0;
 }
+.userTweetInfo {
+  width: 100%;
+}
 
 .userTweetInfo h2 {
   font-size: 15px;
@@ -133,7 +133,6 @@ export default {
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .userTweetInfo span {
@@ -146,6 +145,29 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-top: 5px;
-  width: 800px;
+  width: 600px;
+  max-width: 100%;
+}
+
+.tweetContent {
+  width: 600px;
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .userTweet {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .actionIcons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  .userTweetInfo {
+    width: 40%;
+  }
 }
 </style>

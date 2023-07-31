@@ -176,9 +176,8 @@ export default {
 
 <style>
 .pieChartContainer {
-  width: 300px;
   height: 300px;
-  margin: 20px 10px;
+  margin-bottom: 20px;
 }
 
 .percentages {
@@ -186,6 +185,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: smaller;
 }
 
 .percentages div {
@@ -199,5 +199,15 @@ export default {
   height: 10px;
   margin-right: 5px;
   border: 1px solid;
+}
+
+canvas {
+  max-width: 100%;
+}
+
+@media (min-width: 600px) {
+  canvas {
+    width: 600px;
+  }
 }
 </style>

@@ -55,7 +55,7 @@ export default {
           labels: sentencesByCountry.map((item) => item.country),
           datasets: [
             {
-              label: "Number of Sentences",
+              label: "Number of Tweets",
               data: sentencesByCountry.map((item) => item.tweetLength),
               borderColor: "rgba(75, 192, 192, 1)",
               backgroundColor: "rgba(75, 192, 192, 0.2)",
@@ -96,4 +96,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+canvas {
+  max-width: 100%;
+}
+
+@media (min-width: 600px) {
+  canvas {
+    width: 600px;
+  }
+}
+</style>

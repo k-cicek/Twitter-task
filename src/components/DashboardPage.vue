@@ -4,15 +4,15 @@
     <div class="chartContainer">
       <div class="chartCard">
         <h5 class="chartTitle">Total number of tweets by country</h5>
-        <LineChart :data="users" :width="600" :height="400" />
-      </div>
-      <div class="chartCard">
-        <h5 class="chartTitle">Female-Male ratio of all tweets pie</h5>
-        <PieChart :users="users" :width="400" :height="400" />
+        <LineChart :data="users" :width="500" :height="400" />
       </div>
       <div class="chartCard">
         <h5 class="chartTitle">Tweet likes graph</h5>
-        <BarChart :users="users" :width="400" :height="400" />
+        <BarChart :users="users" :width="500" :height="400" />
+      </div>
+      <div class="chartCard">
+        <h5 class="chartTitle">Female-Male ratio of all tweets pie</h5>
+        <PieChart :users="users" :width="500" :height="400" />
       </div>
     </div>
   </div>
@@ -57,21 +57,32 @@ export default {
 
 <style>
 .chartContainer {
-  display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .chartCard {
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 20px;
-  margin: 10px;
+  padding: 20px 20px 100px 20px;
+  margin: 35px 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  max-width: 800px;
 }
 
 .chartTitle {
   margin-bottom: 10px;
+}
+
+@media (max-width: 1441px) {
+  .chartContainer {
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .chartCard {
+    width: 100%;
+    max-width: 400px;
+  }
 }
 </style>

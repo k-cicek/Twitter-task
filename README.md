@@ -34,7 +34,6 @@ Bağımlılıkları yükledikten sonra, aşağıdaki komutla uygulamayı başlat
 
 Uygulama başarıyla başlatıldıktan sonra, tarayıcınızda `http://localhost:8080` adresine giderek uygulamayı görebilirsiniz.
 
-Linkten sayfayı inceleyebilirsiz
 
 ### Verilerin Yüklenmesi
 
