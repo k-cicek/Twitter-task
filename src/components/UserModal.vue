@@ -1,4 +1,3 @@
-<!-- UserModal.vue -->
 <template>
   <div class="userModal" v-if="showModal">
     <div class="modalContent">
@@ -114,7 +113,7 @@ export default {
   margin-bottom: 0;
 }
 .userTweets h2 span {
-  font-size: 15px;
+  font-size: 12px;
   font-weight: normal;
 }
 .userTweets h3 {
@@ -152,7 +151,7 @@ export default {
 
 .userDetails {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .userDetailsAvatar {
@@ -190,51 +189,43 @@ export default {
 }
 
 .tweetContents {
-  max-width: 800px;
+  width: 900px;
+  max-width: 100%;
 }
 
 .actionIcon {
   display: flex;
   justify-content: space-between;
   margin-top: 13px;
-  width: 800px;
-  max-width: 100%;
 }
 @media only screen and (max-width: 1024px) {
-  .userTweets {
-    width: 100%;
-  }
-  .tweetContents p {
-    width: 70%;
-  }
-  .actionIcon {
-    max-width: 50%;
+  .tweetContents {
+    width: 650px;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .actionIcons {
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px;
-  }
-  .tweetContents p {
-    width: 40%;
-  }
-  .actionIcon {
-    max-width: 50%;
+  .userInfoModal {
+    width: 68%;
   }
 }
 
 @media only screen and (max-width: 425px) {
-  .tweetContents p {
-    width: 20%;
-  }
   .actionIcon {
-    max-width: 25%;
+    width: 230px;
   }
-  .userTweets h2 span {
-    font-size: 13px;
+  .userInfoModal {
+    width: 33%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .actionIcon {
+    width: 200px;
+  }
+  .userInfoModal {
+    font-size: 14px;
+    width: 28%;
   }
 }
 </style>

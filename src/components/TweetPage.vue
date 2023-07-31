@@ -107,7 +107,7 @@ export default {
 
 .userDetail {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .tweetAavatar {
@@ -145,12 +145,10 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-top: 5px;
-  width: 600px;
-  max-width: 100%;
 }
 
 .tweetContent {
-  width: 600px;
+  width: 900px;
   max-width: 100%;
 }
 
@@ -158,16 +156,32 @@ export default {
   .userTweet {
     width: 95%;
   }
+  .tweetContent {
+    width: 850px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
+  .userTweetInfo {
+    width: 68%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
   .actionIcons {
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px;
+    width: 300px;
   }
   .userTweetInfo {
-    width: 40%;
+    width: 33%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .actionIcons {
+    width: 250px;
+  }
+  .userTweetInfo {
+    width: 28%;
   }
 }
 </style>
