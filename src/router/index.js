@@ -1,20 +1,31 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import LoginView from "../views/LoginView.vue";
+import DashboardPage from "../components/DashboardPage.vue";
+import LoginPage from "../components/LoginPage.vue";
+import UserPage from "../components/UserPage.vue";
+import TweetPage from "../components/TweetPage.vue";
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
+    name: "dashboard",
+    component: DashboardPage,
     meta: { requiresAuth: true },
   },
   {
     path: "/login",
     name: "login",
-    component: LoginView,
+    component: LoginPage,
   },
-  // Add other route definitions here.
+  {
+    path: "/users",
+    name: "user",
+    component: UserPage,
+  },
+  {
+    path: "/tweets",
+    name: "tweet",
+    component: TweetPage,
+  },
 ];
 
 const router = createRouter({
@@ -27,7 +38,6 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
 
   if (requiresAuth && !loggedIn) {
-    // If the route requires authentication and the user is not logged in, redirect to login
     next({ name: "login" });
   } else {
     next();
