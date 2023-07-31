@@ -29,6 +29,7 @@ Bu projeyi çalıştırmak için aşağıdaki yazılımlara ihtiyacınız vardı
 
 Bağımlılıkları yükledikten sonra, aşağıdaki komutla uygulamayı başlatabilirsiniz:
 
+`npm run serve`
 
 Uygulama başarıyla başlatıldıktan sonra, tarayıcınızda `http://localhost:8080` adresine giderek uygulamayı görebilirsiniz.
 
