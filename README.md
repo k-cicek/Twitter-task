@@ -23,6 +23,7 @@ Bu projeyi çalıştırmak için aşağıdaki yazılımlara ihtiyacınız vardı
 
 1. Proje klasörünü yerel makinenize klonlayın veya ZIP dosyası olarak indirin.
 2. Klasöre terminal üzerinden gidin ve aşağıdaki komutu çalıştırarak bağımlılıkları yükleyin:
+   `npm install`
 
 
 ### Çalıştırma
